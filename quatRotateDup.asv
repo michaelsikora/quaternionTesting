@@ -1,0 +1,11 @@
+function [ vectorb ] = quatRotateDup( quaternion, vectora )
+%QUATROTATEDUP 
+%   Quaternion - the quaternion that describes the coordinate
+%       transformation. reference frame b (size 1x4)
+%   vectora - the vector in the starting reference frame a (size 1x3)
+
+% quaternion ox vecta ox quaternion^T = vectb
+
+
+end
+
