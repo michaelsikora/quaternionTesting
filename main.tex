@@ -10,6 +10,7 @@
 \usepackage{dirtree}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{tensor}
 \input{./texCodeStyles/matlabLanguage.tex}
 \input{./texCodeStyles/basicListLanguage.tex}
 
@@ -25,19 +26,34 @@
 \PP This project contains MATLAB files created to visualize and verify quaternion calculations, specifically those employed in Madgwick 2010 \cite{Madgwick10}. This document was made to show which code matches with which equations in Madgwick 2010 \cite{Madgwick10} and to discuss some results. To quickly view a rotation of a vector by a quaternion, run \textbf{driver.m}.
 \blockstop
 
-
-\blockstart
+\vspace{1cm}
 \section*{Selected Code}
 
-\subsubsection*{quatRotateDup.m}
-\lstinputlisting[language=Matlab,firstnumber=7,firstline=7,lastline=13]{quatRotateDup.m}
-
+\blockstart
 \vspace{1cm}
+\begin{align}
+\boldsymbol{a} \otimes \boldsymbol{b} &= \begin{bmatrix} a_1 & a_2 & a_3 & a_4 \end{bmatrix} \otimes \begin{bmatrix} b_1 & b_2 & b_3 & b_4 \end{bmatrix} \notag \\
+&= \begin{bmatrix} 
+a_1 b_1 - a_2 b_2 - a_3 b_3 - a_4 b_4 \\ 
+a_1 b_2 + a_2 b_1 + a_3 b_4 - a_4 b_3 \\ 
+a_1 b_3 - a_2 b_4 + a_3 b_1 + a_4 b_2 \\
+a_1 b_4 + a_2 b_3 - a_3 b_2 + a_4 b_1 \end{bmatrix}^T \tag{4, Madgwick}
+\end{align}
+
 \subsubsection*{quatMult.m}
-\lstinputlisting[language=Matlab,firstnumber=6,firstline=6,lastline=6]{quatMult.m}
+%\lstinputlisting[language=Matlab,firstnumber=6,firstline=6,lastline=6]{quatMult.m}
 \lstinputlisting[language=Matlab,firstnumber=28,firstline=28,lastline=37]{quatMult.m}
 \blockstop
 
+\blockstart
+\vspace{1cm}
+\begin{align}
+\tensor[^B]{\boldsymbol{\upsilon}}{} = \tensor*[^{A}_B]{\boldsymbol{\hat{q}}}{} \otimes \tensor[^A]{\boldsymbol{\upsilon}}{} \otimes \tensor*[^{A}_B]{\boldsymbol{\hat{q}}}{^*} \tag{5, Madgwick}
+\end{align}
+
+\subsubsection*{quatRotateDup.m}
+\lstinputlisting[language=Matlab,firstnumber=9,firstline=9,lastline=13]{quatRotateDup.m}
+\blockstop
 
 \blockstart
 \section*{Example}
