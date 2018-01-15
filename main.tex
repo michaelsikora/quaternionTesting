@@ -1,11 +1,51 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \bibliographystyle{IEEEtran}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{multicol}
 \usepackage{fancyhdr}
 \usepackage{dirtree}
 \usepackage{listings}
 \input{./texCodeStyles/matlabLanguage.tex}
+\input{./texCodeStyles/basicListLanguage.tex}
+
+\newcommand{\PP}{\par\hspace{1cm}}
+\newcommand{\uu}{\underline}
 
 \begin{document}
-Documentation goes here
+\section*{Overview}
+\PP This project contains MATLAB files created to visualize and verify quaternion calculations, specifically those employed in \cite{Madgwick10}. This document was made to show which code matches with which equations in \cite{Madgwick10} and to discuss some results. To quickly view a rotation of a vector by a quaternion, run \textit{driver.m}.
+
+\section*{Selected Code}
+
+\subsubsection*{quatRotateDup.m}
+\lstinputlisting[language=Matlab,firstnumber=5,firstline=5,lastline=13]{quatRotateDup.m}
+
+\PP The below figure demonstrates the result of \textit{driver.m} for a $\pi/4$ angle rotation about the z axis. The initial vector [1 0 0], a unit vector in the x axis, was hardcoded in \textit{quatTest.m}.
+
+\begin{center}
+\includegraphics[width = 16cm]{./snap1.png}
+\end{center}
+
+\section*{Directory Tree}
+\begin{flushleft}
+\dirtree{%
+.1 {./}.
+.2 {README.md}.
+.2 {driver.m}.
+.2 {quatRotateDup.m}.
+.2 {quatMult.m}.
+.2 {quatTest.m}.
+}
+\end{flushleft}
+
+\newpage
+\section*{README.md}
+\lstinputlisting[language=C]{README.md}
+
+\newpage
+\bibliography{references}
+
 \end{document}
