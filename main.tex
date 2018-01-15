@@ -1,6 +1,7 @@
 \documentclass[10pt]{article}
 \bibliographystyle{IEEEtran}
 \usepackage[utf8]{inputenc}
+\usepackage[letterpaper, left=1.25in, right=1.25in, bottom=1in, top=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{pgfplotstable}
 \usepackage{booktabs}
@@ -8,27 +9,47 @@
 \usepackage{fancyhdr}
 \usepackage{dirtree}
 \usepackage{listings}
+\usepackage{hyperref}
 \input{./texCodeStyles/matlabLanguage.tex}
 \input{./texCodeStyles/basicListLanguage.tex}
 
 \newcommand{\PP}{\par\hspace{1cm}}
 \newcommand{\uu}{\underline}
+\newcommand{\blockstart}{\vspace{1cm}\begin{minipage}{\linewidth}}
+\newcommand{\blockstop}{\end{minipage}}
 
+\pgfplotsset{compat=1.14}
 \begin{document}
+\blockstart
 \section*{Overview}
-\PP This project contains MATLAB files created to visualize and verify quaternion calculations, specifically those employed in \cite{Madgwick10}. This document was made to show which code matches with which equations in \cite{Madgwick10} and to discuss some results. To quickly view a rotation of a vector by a quaternion, run \textit{driver.m}.
+\PP This project contains MATLAB files created to visualize and verify quaternion calculations, specifically those employed in Madgwick 2010 \cite{Madgwick10}. This document was made to show which code matches with which equations in Madgwick 2010 \cite{Madgwick10} and to discuss some results. To quickly view a rotation of a vector by a quaternion, run \textbf{driver.m}.
+\blockstop
 
+
+\blockstart
 \section*{Selected Code}
 
 \subsubsection*{quatRotateDup.m}
-\lstinputlisting[language=Matlab,firstnumber=5,firstline=5,lastline=13]{quatRotateDup.m}
+\lstinputlisting[language=Matlab,firstnumber=7,firstline=7,lastline=13]{quatRotateDup.m}
 
-\PP The below figure demonstrates the result of \textit{driver.m} for a $\pi/4$ angle rotation about the z axis. The initial vector [1 0 0], a unit vector in the x axis, was hardcoded in \textit{quatTest.m}.
+\vspace{1cm}
+\subsubsection*{quatMult.m}
+\lstinputlisting[language=Matlab,firstnumber=6,firstline=6,lastline=6]{quatMult.m}
+\lstinputlisting[language=Matlab,firstnumber=28,firstline=28,lastline=37]{quatMult.m}
+\blockstop
+
+
+\blockstart
+\section*{Example}
+\PP The below figure demonstrates the result of \textbf{driver.m} for a $\pi/4$ angle rotation about the z axis. The initial vector [1 0 0], a unit vector in the x axis, was hardcoded in \textbf{quatTest.m}.
 
 \begin{center}
 \includegraphics[width = 16cm]{./snap1.png}
 \end{center}
+\blockstop
 
+
+\blockstart
 \section*{Directory Tree}
 \begin{flushleft}
 \dirtree{%
@@ -40,12 +61,12 @@
 .2 {quatTest.m}.
 }
 \end{flushleft}
+\blockstop
 
 \newpage
 \section*{README.md}
 \lstinputlisting[language=C]{README.md}
 
-\newpage
-\bibliography{references}
+\blockstart\bibliography{references}\blockstop
 
 \end{document}
