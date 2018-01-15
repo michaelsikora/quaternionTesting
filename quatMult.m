@@ -3,6 +3,8 @@ function [ q_out ] = quatMult( q_a, q_b )
 %   operation on inputs is q_out = q_a ox q_b where ox is
 %   the quaternion multiplication
 
+% Operation defined by Madgwick Equation 4
+
 % Validate dimensions (Optional)
 sa = size(q_a);
 sb = size(q_b);
