@@ -42,8 +42,12 @@ title('vector in initial reference frame'); hold off;
 
 subplot(1,2,2), quiver3(0,0,0,vect_after(1),vect_after(2),vect_after(3));
 hold on;
-h = surfl(x,y,z); set(h, 'FaceAlpha', 0.1 ); shading interp;
+quiver3(0,0,0,axis(1),axis(2),axis(3)); 
+h = surfl(x,y,z); set(h, 'FaceAlpha', 0.1 ); shading interp; hold off;
+legend('vector','axis','Location','northeast');
+xlabel('x axis'); ylabel('y axis'); zlabel('z axis');
 xlim([-1 1]); ylim([-1 1]); zlim([-1 1]);
-title('vector in new reference frame'); hold off;
+title('vector in new reference frame');
+
 %%%%%%%%%%%%%%%%%%%%%%
 end
