@@ -10,7 +10,7 @@
 % quatTest(pi/4, ax);
 
 % full 360 degree rotation about the -y axis
-ax = [0 -1 0]; ax = ax./sqrt(sum(ax.^2));
+ax = [0 1 0]; ax = ax./sqrt(sum(ax.^2));
 N = 10;
 for ii = 1:N
     quatTest(2*ii*pi/N, ax);
@@ -22,7 +22,6 @@ end
 % % quatTest(pi/2, ax); % rotates and plots
 % 
 % quatTest(pi/4, ax);
-
 
 
 % % full 360 degree rotation about the -y axis

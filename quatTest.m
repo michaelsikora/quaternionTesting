@@ -22,7 +22,11 @@ vect_init = [1 0 0]; % size 1x3
 cos2 = cos(angle/2);
 sin2 = sin(angle/2);
 % Define quaternion
-quaternion = [cos2 -axis(1)*sin2 -axis(2)*sin2 -axis(3)*sin2];
+% Madgwick's definition:
+% quaternion = [cos2 -axis(1)*sin2 -axis(2)*sin2 -axis(3)*sin2];
+% standard definition: 
+quaternion = [cos2 axis(1)*sin2 axis(2)*sin2 axis(3)*sin2];
+
 
 % alternatively, quaternion can be explicitly defined here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
