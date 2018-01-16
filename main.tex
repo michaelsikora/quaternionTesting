@@ -22,8 +22,14 @@
 \pgfplotsset{compat=1.14}
 \begin{document}
 \blockstart
+\section*{Point of Contact: Michael Sikora $\langle$m.sikora@uky.edu$\rangle$}
+\section*{Date: 2018.01.16}
+\section*{Project: Quaternion Testing}
+\blockstop
+
+\blockstart
 \section*{Overview}
-\PP This project contains MATLAB files created to visualize and verify quaternion calculations, specifically those employed in Madgwick 2010 \cite{Madgwick10}. This document was made to show which code matches with which equations in Madgwick 2010 \cite{Madgwick10} and to discuss some results. To quickly view a rotation of a vector by defined by a given quaternion, run \textbf{driver.m}.
+\PP This project contains MATLAB files created to visualize and verify quaternion calculations, specifically those employed in Madgwick 2010 \cite{Madgwick10}. This document was made to show which code matches with which equations in Madgwick 2010 \cite{Madgwick10} and to discuss some results. To quickly view a rotation of a vector by defined by a given quaternion, run \textbf{driver.m}. The rotation defined by the quaternion in \textbf{quatTest.m} was conjugated from Madgwick's definition to match the standard definition of rotation given by Rodrigues' rotation formula (\url{https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula}).
 \blockstop
 
 \blockstart
@@ -56,7 +62,7 @@ a_1 b_4 + a_2 b_3 - a_3 b_2 + a_4 b_1 \end{bmatrix}^T \tag{4, Madgwick}
 
 \blockstart
 \section*{Example}
-\PP The below figure demonstrates the result of \textbf{driver.m} for a $\pi/4$ angle rotation about the z axis. The initial vector [1 0 0], a unit vector in the x axis, was hardcoded in \textbf{quatTest.m}.
+\PP The below figure demonstrates the result of \textbf{driver.m} for a -$\pi/4$ angle rotation about the z axis. The initial vector [1 0 0], a unit vector in the x axis, was hardcoded in \textbf{quatTest.m}.
 
 \begin{center}
 \includegraphics[width = 16cm]{./snap1.png}
